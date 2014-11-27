@@ -6,7 +6,9 @@ FlexAA<-function(data,lookback=c(4,4,4),wt=c(1,.5,.5),n.top=.5,cash.col=1,data.t
     wt.mom<-wt[1] ;    wt.vol<-wt[2] ;    wt.cor<-wt[3] #wts of ranks in scoreing
     if (n.top==.5) n.top<- trunc(ncol(data)/2) #if set to .5, use top half of asset classes
     
-    source("~/Quant Trading/momentum.r")
+    momdir.home<-"~/Quant Trading/Momentum/"
+    momdir.work<-"G:/Atlanta/All Departmental Data/Research Department/Asset Allocation/Tactical Asset Allocation Models/FlexibleAA/"
+    try(source(paste(momdir.home,"momentum.r",sep="")))
     library(quantmod)
     library(xts)
     library(TTR)
