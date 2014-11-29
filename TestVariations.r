@@ -17,7 +17,7 @@ if (location=="home"){
     datadir<-datadir.work
 }
 setwd(wd)
-source(paste(wd,"FlexibleAA2.r",sep=""))
+source(paste(wd,"faa.r",sep=""))
 source(paste(momdir,"momentum.r",sep=""))
 
 library(PerformanceAnalytics)
@@ -46,7 +46,7 @@ FlexRun<-function(sec.names,lookback,wt,n.top,cash.col,data.type="prices"){
   #  return("Error: Couldn't find all security names in data")
   #}
   data<-data[complete.cases(data),]
-  Flex.results<-FlexAA(data,lookback,wt,n.top,cash.col,data.type)
+  Flex.results<-faa(data,lookback,wt,n.top,cash.col,data.type)
   Flex<-Flex.results$returns[,1:2]
   ac.returns<-Flex.results$returns[,3:9]
   b1.sec<-c("SP500","TTLBND")
@@ -84,7 +84,7 @@ Quickrun<-function(sec.names,lookback,wt,n.top,cash.col,data.type="prices"){
     data<-returns.daily[,sec.names]/100
     data<-data[complete.cases(data),]
     result<-list()
-    FAA<-FlexAA(data,lookback,wt,n.top,cash.col,data.type)
+    FAA<-faa(data,lookback,wt,n.top,cash.col,data.type)
     x<-FAA$returns[,1:2]
     result$sec.names<-sec.names
     result$lookback<-lookback
