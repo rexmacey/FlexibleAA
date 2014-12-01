@@ -61,6 +61,7 @@ faa<-function(data,lookback=c(4,4,4),wt=c(1,.5,.5),n.top=.5,cash.col=1,data.type
     result$returns<-study.returns
     result$allocations<-as.timeSeries(allocations)
     result$topn<-ac.topn.abs
-    result$turnover<-turnover.mean
+    result$turnover.monthly<-turnover.monthly
+    result$turnover.mean<-turnover.mean
     return(result)
 }
